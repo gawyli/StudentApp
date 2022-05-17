@@ -1,0 +1,96 @@
+<html lang="English">
+	<head>
+		<title>Student web application</title>
+		<meta charset="uft-8">
+		<meta name="description" content="Web application for use by students and interested">
+		<meta name="keywords" content="student, college, app, web, application">
+		<meta name="author" content="Pawel Wisniewski">
+		<meta name="robots" content="none">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="stylesheet.css">
+		<script src="functions.js"></script>
+	</head>
+	<body>
+		<div id="body">
+		<center>
+			<div id="containter">
+				<div id="logo_position">
+				<img src="img/logo.png">
+				</div>
+				<div id="header">
+					<p style="font-size: 12px">Welcome: <var id="user">x</var></p>
+					<button type="button" id="signoutBtn" onclick="signout()">Sign out</button>
+				</div>
+				<div id="body_form">
+					<p style="font-weight: bold">Calendar</p>
+					<div id="form">
+						<div id="form_position">
+							<div id="pics">
+								<img id="myImg" class="imgPreview" src="img/noimg.svg" onclick="zoom()">
+
+								<!-- The Modal -->
+								<div id="myModal" class="modal">
+									<span class="close">&times;</span>
+									<img class="modal-content" id="img01">
+									<div id="caption"></div>
+								</div>
+
+								<script>
+									// Get the modal
+									var modal = document.getElementById("myModal");
+
+									// Get the image and insert it inside the modal - use its "alt" text as a caption
+									var img = document.getElementById("myImg");
+									var modalImg = document.getElementById("img01");
+									var captionText = document.getElementById("caption");
+									img.onclick = function () {
+										modal.style.display = "block";
+										modalImg.src = this.src;
+										captionText.innerHTML = this.alt;
+									}
+
+									// Get the <span> element that closes the modal
+									var span = document.getElementsByClassName("close")[0];
+
+									// When the user clicks on <span> (x), close the modal
+									span.onclick = function () {
+										modal.style.display = "none";
+									}
+								</script>
+
+								<input type="file" id="btn" class="myFileInput" />
+								<input type="button" id="btn" onclick="upload()" value="Upload" />
+								<input type="button" id="btn" onclick="backWeb()" value="Back" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<p style="font-size:10px">&#169 Copyright <i>gawyli</i></p>
+			</div>
+			</center>
+		</div>
+		
+		<script>
+			document.querySelector(".myFileInput").addEventListener("change", function() 
+			{
+				const reader = new FileReader();
+
+				reader.addEventListener("load", () => 
+				{
+					localStorage.setItem("recent-image", reader.result);
+				});
+
+				reader.readAsDataURL(this.files[0]);
+			});
+			
+			window.addEventListener('DOMContentLoaded', () => 
+			{
+				if(localStorage.getItem("recent-image"))
+				{
+					const recentImageDataUrl = localStorage.getItem("recent-image");
+					document.querySelector(".imgPreview").setAttribute("src", recentImageDataUrl);
+				}
+			});
+		</script>
+	</body>
+</html>

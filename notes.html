@@ -1,0 +1,45 @@
+<html lang="English">
+	<head>
+		<title>Student web application</title>
+		<meta charset="uft-8">
+		<meta name="description" content="Web application for use by students and interested">
+		<meta name="keywords" content="student, college, app, web, application">
+		<meta name="author" content="Pawel Wisniewski">
+		<meta name="robots" content="none">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="stylesheet.css">
+		<script src="functions.js"></script>
+	</head>
+	<body>
+		<div id="body">
+		<center>
+			<div id="containter">
+				<div id="logo_position">
+				<img src="img/logo.png"></img>
+				</div>
+				<div id="header">
+					<p style="font-size: 12">Welcome: <var id="user">x</var></p>
+					<button type="button" id="signoutBtn" onclick="signout()">Sign out</button>
+				</div>
+				<div id="body_form">
+					<p style="font-weight: bold">Notes</p>
+					<div id="form">
+						<div id="form_position">
+							<input type="text" placeholder="Note Title" id="title" value=""></input>
+							<textarea placeholder="Note" id="notes">
+							</textarea>
+							<div id="notesDiv">
+							</div>
+							<input type="button" id="btn" onclick="saveNote()" value="Save note" ></input>
+							<input type="button" id="btn" onclick="displayNotes()" value="Display notes" ></input>
+							<input type="button" id="btn" onclick="deleteNote()" value="Delete note"></input>
+							<input type="button" id="btn" onclick="backWeb()" value="Back"></input>
+						</div>
+					</div>
+				</div>
+				<p style="font-size:10px">&#169 Copyright <i>gawyli</i></p>
+			</div>
+			</center>
+		</div>
+	</body>
+</html>
