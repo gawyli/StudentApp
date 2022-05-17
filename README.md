@@ -1,2 +1,2 @@
 # StudentApp
-Mobile Web Based Application for students to check calendar and makes notes
+Mobile Web Based Application for students to check calendar and make notes
